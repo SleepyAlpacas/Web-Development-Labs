@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkForm(){
+            let name = document.getElementById("name").value;
+            let address = document.getElementById("address").value;
+            let phone = document.getElementById("phone").value;
+            if (name.match(/^[a-zA-Z]+$/)){
+                if (address.length > 0){
+                    if (phone.match(/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/)){
+                        displayinformation(name, address, phone);
+                    }
+
+                    else{
+                        alert("invalid phone number")
+                    }
+                }
+                else{
+                    alert("empty address")
+                }
+            }
+            else{
+                alert("invalid name");
+            }
+            event.preventDefault();
+        }
+
+        function displayinformation(name, address, phone){
+
+            document.getElementById("information0").innerHTML = "Name: " + name;
+            document.getElementById("information0").style.color = "red";
+            document.getElementById("information1").innerHTML = "Address: " + address;
+            document.getElementById("information1").style.color = "blue";
+            document.getElementById("information2").innerHTML = "Phone: " + phone;
+            document.getElementById("information2").style.color = "yellow";
+            document.getElementById("displayInformation").style.backgroundColor = "black";
+        }
+
+        function charCount(){
+            let words = document.getElementById("textCount").value;
+            document.getElementById("characters").innerHTML = "Characters Count: " + words.length;
+        }
+
+        function letterCount(){
+            let words = document.getElementById("textCount").value;
+            let ans = 0;
+            for (let i = 0; i < words.length; i++){
+                if (words[i].match(/^[a-zA-Z]+$/)){
+                    ans++;
+                }
+            }
+            document.getElementById("letters").innerHTML = "Letter Count: " + ans;
+        }
+
+        function counter(){
+            charCount();
+            letterCount();
+        }
+
+        function displayBookmarks(){
+            let bookmarks = ["https://www.dustloop.com/w/Main_Page", "https://wiki.gbl.gg/w/Main_Page", "http://www.dreamcancel.com/wiki/Main_Page"]
+            let list = document.getElementById("bookmarkList");
+            for (let i = 0; i < bookmarks.length; i++){
+                let temp = document.createElement('li');
+                temp.innerHTML += bookmarks[i];
+                list.appendChild(temp);
+
+                if (bookmarks[i].match(/^https:/)){
+                    let test = document.createElement('img');
+                    test.src="https://wasabipublicity.com/wp-content/uploads/sites/6/2016/12/SSL.jpg";
+                    test.style.display="block";
+                    test.style.width="2%";
+                    test.style.paddingBottom="0.5%";
+                    document.getElementById("locks").appendChild(test);
+                }
+                else if (bookmarks[i].match(/^http:/)){
+                    let test = document.createElement('img');
+                    test.src="https://pbs.twimg.com/media/CM94ZemWEAAnEg7.png";
+                    test.style.display="block";
+                    test.style.width="2%";
+                    document.getElementById("locks").appendChild(test);
+                }
+            }
+        }
+
+        function convertPhone(){
+            let phone = document.getElementById("phoneExchange").value;
+            phone.slice(0,3) + "-" + phone.slice(3,6) + "-" + phone.slice(6)
+            event.preventDefault();
+            document.getElementById("phoneOut").innerHTML = "Converted Phone: " + (phone.slice(0,3) + "-" + phone.slice(3,6) + "-" + phone.slice(6));
+        }
+
+    </script>
+</head>
+<body onload="return displayBookmarks()">
+    <form onsubmit="return checkForm()">
+        Name:<br>
+        <input type="text" id="name"><br>
+        Address:<br>
+        <input type="text" id="address"><br>
+        Phone Number:<br>
+        <input type="text" id="phone"><br>
+        <input type="submit"><br>
+    </form>
+
+    <div id="displayInformation">
+        <h1 id="information0"></h1>
+        <h1 id="information1"></h1>
+        <h1 id="information2"></h1>
+    </div>
+
+    <form onsubmit="convertPhone()" style="padding-top: 10%">
+        Convert digits to area code exhange-number format <br>
+        <input type="text" id="phoneExchange"><br>
+        <input type="submit"><br>
+    </form>
+
+    <h1 id="phoneOut"></h1>
+
+    <textarea id="textCount" onkeydown="return counter()" style="margin-top: 10%">
+    </textarea>
+
+    <p id="characters">Character Count: 0</p>
+    <p id="letters">Letter Count: 0</p>
+
+    <div id="bookmarks" style="display:flex;">
+        <ul id="bookmarkList">
+        </ul>
+        <div id="locks" style="padding-top: .75%; padding-left: 2%;">
+
+        </div>
+    </div>
+</body>
+</html>

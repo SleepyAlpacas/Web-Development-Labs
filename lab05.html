@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+
+    <script>
+        $( function () {
+            $(".bodyparts").draggable()
+        });
+
+        function downloadPotato (){
+        html2canvas(document.querySelector("#capture"), { allowTaint: false , useCORS: true}).then(canvas => {
+            var image = canvas.toDataURL("image/png");
+            console.log(image);
+            window.location.href=image;
+            
+        });
+        }
+
+        $(document).ready(function(){
+            $("#reset").hide();
+            $("#expand").mouseenter(function (){
+            
+                if (document.getElementById("expand").height == "200")
+                {
+                    $("#expand").animate({
+                        height: '+=300px',
+                        width: '+= 300px'
+                    }, 
+                    {
+                        duration: 1000
+                    })
+                    $("#reset").show();
+                }
+
+        })
+        })
+
+        function resetImage () {
+            console.log(document.getElementById("expand").style.height);
+            $("#reset").hide();
+            document.getElementById("expand").style.height = "200px";
+
+        }
+
+    </script>
+</head>
+<body style="padding-top: 1%">
+    <h1>QUESTION 1: </h1>
+    <div id="capture" style="border:1px solid black; padding: 10%">
+        <img crossorigin="anonymous" class = "bodyparts" src= "https://i.imgur.com/2046Qu6.png" style="transform: rotate(90deg);">
+        <img height="100" class = "bodyparts" src= "https://i.imgur.com/N6GVnPf.png" crossorigin="anonymous">
+        <img height="100" class = "bodyparts" src= "https://i.imgur.com/N6GVnPf.png" crossorigin="anonymous">
+        <img height="200" class = "bodyparts" src= "https://i.imgur.com/z5eRPrq.png" crossorigin="anonymous">
+        <img height="100" class = "bodyparts" src= "https://i.imgur.com/MuQDHNF.png" crossorigin="anonymous">
+        <img height="150" class = "bodyparts" src= "https://i.imgur.com/MYqSR4g.png" crossorigin="anonymous">
+    </div>
+    <br>
+    <button type="button" onclick="downloadPotato()" style="height:60px; width:30%; font-size: 40px; text-align: center;">Save Potato</button>
+    
+
+    <h1 style="padding-top:10%">QUESTION 2: </h1>
+    <div id="q2" style="position:relative;">
+        <img  id="expand" height="200px" src="https://i1.sndcdn.com/artworks-000106436120-dxfmea-t500x500.jpg">
+        <button style="top:0%; left:30%; position:absolute; height:30px; width: 120px;" id="reset" onclick="resetImage()">Reset</button>
+    </div>
+
+</body>
+</html>

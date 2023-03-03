@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="block">
+        <article class="message is-info" style="margin:2% 65% 2% 0.5%">
+            <div class="message-body">
+              <p>This is my basic website I made using the Bulma framework. </p>
+              <p>Look at how clean this looks.</p>
+            </div>
+          </article>
+    </div>
+
+    <div class = "container block">
+    <p> 
+        <a class = "button is-primary modal-button" data-target = "#modal"> Show an image of an axolotl</a>
+    </p>
+
+    <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <p class="image is-4by3">
+            <img src="https://f4.bcbits.com/img/a3513939738_10.jpg" alt="">
+          </p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    </div>
+
+    <script>
+        $(".modal-button").click(function() {
+           var target = $(this).data("target");
+           $("html").addClass("is-clipped");
+           $(target).addClass("is-active");
+        });
+        
+        $(".modal-close").click(function() {
+           $("html").removeClass("is-clipped");
+           $(this).parent().removeClass("is-active");
+        });
+     </script>
+
+     
+    <article class="message is-success block" style="width:40%">
+        <div class="message-header">
+        <p>How I built the website</p>
+        </div>
+        <div class="message-body">
+        I went on the Bulma website and used the "getting started" page to build my website. Installing bulma was as simple as including a link in the head of the html document and creating Bulma elements were equally easy, only needing to include a class to certain elements
+        </div>
+    </article>
+
+    <article class="message is-danger block" style="width:40%">
+        <div class="message-header">
+        <p>Difficulties Encountered</p>
+        </div>
+        <div class="message-body">
+        Development of the website was mostly smooth, however implementing the button did take some reading outside of the Bulma documentation. The main difficulty was just formatting and understanding the code because of how many classes are used in Bulma.
+        </div>
+    </article>
+</body>
+</html>

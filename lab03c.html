@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lab03c</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 650px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Lab03</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="lab03a.html">CSS Implementation (Lab03a)</a></li>
+        <li><a href="lab03b.html">Bootstrap Implementation (Lab03b)</a></li>
+      </ul><br>
+    </div>
+
+    <div class="col-sm-9">
+
+      <h2>Lab03 Part 3</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> By Daniel Kong, Oct 21, 2022</h5>
+      <h5><span class="label label-danger">School</span> <span class="label label-primary">Web Development</span></h5><br>
+      <p> 
+        The css implementation of the responsive site was much more tedious. I had to set up multiple classes before I could even get started with 
+        putting things on my website. The column system created with css is also less intuitive than the bootstrap version. Getting started with 
+        bootstrap was way easier in comparison to css, since all you needed to do was import the boostrap library. Once that was done, you could just 
+        use columns without having to create them manually, and they work better than anything I could make.
+      </p>
+      <p>
+        The challenge with the css version was wrapping my head around the grid system, but it was smooth sailing once I understood. Meanwhile
+        I had basically no challenges at all with bootstrap. Bootstrap took less time for me and looked just as good with less effort. I definitely
+        enjoyed working with bootstrap more.
+      </p>
+      <br><br>
+      
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Template taken and modified from w3schools.com, templates are free use</p>
+</footer>
+
+</body>
+</html>

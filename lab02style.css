@@ -1,0 +1,78 @@
+header{
+    height: 80px;
+    background-image: url(https://i.pinimg.com/736x/2e/22/c3/2e22c327be5a12ad289fab2b7ad436c1--car-accessories-knobs.jpg);
+    background-size:contain;
+}
+
+#title{
+    margin:0; 
+    text-align: center; 
+    padding: 20px 0;
+    color:white;
+}
+
+#navbar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbaritem{
+    float:left;
+    padding:7px 16px;
+    
+}
+
+#maincontent{
+    border:solid;
+}
+
+#skeletonimg{
+    height: 10%;
+    width: 10%;
+}
+
+#skeletonimg:hover{
+    width:1000px;
+    height:100px;
+}
+
+footer{
+    height: 80px; 
+    background-color: black; 
+    margin: 0;
+}
+
+#footertext{
+    color:white; 
+    text-align: center;
+}
+
+.bigtext{
+    font-size:larger;
+}
+
+#hiddenskeletonimg{
+    visibility: hidden;
+    width: 10%;
+}
+
+#hiddenskeletonimg:hover{
+    visibility: visible;
+}
+
+#skeletonimglayer1{
+    z-index: 1;
+    width:10%;
+    border:solid red;
+    
+}
+
+#skeletonimglayer2{
+    z-index: 2;
+    width:10%;
+    position:relative;
+    right:70px;
+    border:solid red;
+}
